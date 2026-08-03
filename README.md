@@ -8,6 +8,9 @@ Docker docs are chunked, embedded, and stored in a local vector database
 to Claude as context, so answers are grounded in the actual docs instead of
 the model's general knowledge.
 
+<img width="635" height="294" alt="image" src="https://github.com/user-attachments/assets/b5577405-0424-4533-a9f5-ee70303775bb" />
+
+
 ## How it works
 
 1. **`load_docs.py` / `inspect_docs.py`** — sanity-check the raw markdown docs.
