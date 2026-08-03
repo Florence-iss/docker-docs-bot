@@ -72,6 +72,26 @@ Or inspect raw retrieval without an LLM call:
 python search.py
 ```
 
+## Running with Docker
+
+The Dockerfile packages the Streamlit UI along with a prebuilt vector store,
+so run `chunk_docs.py` and `build_vectorstore.py` locally first (see
+Usage above) to generate `chroma_db/` before building the image.
+
+Build the image:
+
+```bash
+docker build -t docker-docs-bot .
+```
+
+Run it, passing your API key and mapping the Streamlit port:
+
+```bash
+docker run -p 8501:8501 -e ANTHROPIC_API_KEY=your-key-here docker-docs-bot
+```
+
+Then open `http://localhost:8501` in your browser.
+
 ## Notes
 
 - The vector store (`chroma_db/`), chunk cache (`chunks.json`), and cloned
