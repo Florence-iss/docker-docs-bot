@@ -17,8 +17,10 @@ the model's general knowledge.
    persistent ChromaDB collection (`chroma_db/`).
 4. **`search.py`** — a simple CLI to inspect raw vector search results
    (no LLM call), useful for debugging retrieval quality.
-5. **`rag.py`** — the actual chatbot: retrieves relevant chunks for a
+5. **`rag.py`** — the chatbot as a CLI: retrieves relevant chunks for a
    question and asks Claude to answer using only that context, citing sources.
+6. **`app.py`** — the same chatbot as a Streamlit web UI, with chat history
+   and an expandable sources list per answer.
 
 ## Setup
 
@@ -34,7 +36,7 @@ the model's general knowledge.
    ```bash
    python3 -m venv venv
    source venv/bin/activate
-   pip install anthropic chromadb langchain-text-splitters python-dotenv
+   pip install -r requirements.txt
    ```
 
 3. Add your Anthropic API key to a `.env` file in the project root:
@@ -52,10 +54,16 @@ python chunk_docs.py
 python build_vectorstore.py
 ```
 
-Ask questions:
+Ask questions from the CLI:
 
 ```bash
 python rag.py
+```
+
+Or launch the Streamlit web UI:
+
+```bash
+streamlit run app.py
 ```
 
 Or inspect raw retrieval without an LLM call:
