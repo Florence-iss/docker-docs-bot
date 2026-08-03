@@ -1,0 +1,5 @@
+anthropic
+python-dotenv
+langchain-text-splitters
+chromadb
+streamlit
