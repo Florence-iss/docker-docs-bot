@@ -7,6 +7,7 @@ Docker docs are chunked, embedded, and stored in a local vector database
 (ChromaDB). At query time, the most relevant chunks are retrieved and passed
 to Claude as context, so answers are grounded in the actual docs instead of
 the model's general knowledge.
+<img width="642" height="328" alt="image" src="https://github.com/user-attachments/assets/7432ef47-b0b5-497b-810c-5484c0397271" />
 
 ## How it works
 
