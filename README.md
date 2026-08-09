@@ -23,6 +23,15 @@ the model's general knowledge.
 6. **`app.py`** — the same chatbot as a Streamlit web UI, with chat history
    and an expandable sources list per answer.
 
+There's also an alternate implementation that uses an AWS Bedrock Knowledge
+Base instead of the local ChromaDB/Claude pipeline above:
+
+7. **`ask_docker_bot.py`** — CLI version: retrieves from a Bedrock Knowledge
+   Base and generates an answer with a Bedrock model (Amazon Nova Lite).
+8. **`docker_bot_app.py`** — the same Bedrock-backed bot as a Streamlit web
+   UI. Uses local AWS credentials (`aws configure`) when run on your machine,
+   or credentials from Streamlit Secrets when deployed to Streamlit Cloud.
+
 ## Setup
 
 1. Clone the Docker docs content into `data/docs` (this project expects
@@ -71,6 +80,18 @@ Or inspect raw retrieval without an LLM call:
 
 ```bash
 python search.py
+```
+
+### Bedrock version
+
+`ask_docker_bot.py` and `docker_bot_app.py` don't use `chroma_db/` — they
+query an AWS Bedrock Knowledge Base instead (set `KNOWLEDGE_BASE_ID` in each
+file), and need AWS credentials (`aws configure` locally, or Streamlit
+Secrets when deployed) rather than `ANTHROPIC_API_KEY`.
+
+```bash
+python ask_docker_bot.py       # CLI
+streamlit run docker_bot_app.py  # web UI
 ```
 
 ## Running with Docker
