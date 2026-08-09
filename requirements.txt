@@ -3,3 +3,4 @@ python-dotenv
 langchain-text-splitters
 chromadb
 streamlit
+boto3
